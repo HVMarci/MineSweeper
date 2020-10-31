@@ -17,6 +17,7 @@ public class JatekVege {
 		// popup
 		final Stage dialog = new Stage();
 		dialog.initModality(Modality.APPLICATION_MODAL);
+		dialog.initOwner(Main.getStage());
 		VBox dialogVbox = new VBox(20);
 		Text txt = new Text(" Nyertél!");
 		txt.setFont(new Font(40));
@@ -38,6 +39,7 @@ public class JatekVege {
 		// popup
 		final Stage dialog = new Stage();
 		dialog.initModality(Modality.APPLICATION_MODAL);
+		dialog.initOwner(Main.getStage());
 		VBox dialogVbox = new VBox(20);
 		Text txt = new Text(" Vesztettél!");
 		txt.setFont(new Font(40));

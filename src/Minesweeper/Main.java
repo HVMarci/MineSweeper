@@ -29,6 +29,7 @@ public class Main extends Application {
 	public static Text[] text;
 	public static BombakKijelzo bombakKijelzo = new BombakKijelzo();
 	public static MyTimer timer;
+	private static Stage s;
 
 	public static void showMines(Color c) {
 		for (Mezo i : mezo) {
@@ -104,7 +105,8 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage stage) {
-
+		
+		s = stage;
 		// konzolos pályalekérés
 		// Scanner scanner = new Scanner(System.in);
 		// do {
@@ -204,6 +206,10 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public static Stage getStage() {
+		return s;
 	}
 
 }
