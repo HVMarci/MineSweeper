@@ -1,15 +1,9 @@
 package Minesweeper;
 
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 public class KlikkListener implements EventHandler<MouseEvent> {
 

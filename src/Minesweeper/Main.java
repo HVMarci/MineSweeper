@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,7 +12,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
@@ -22,7 +20,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.converter.NumberStringConverter;
 
 public class Main extends Application {
 
@@ -104,7 +101,7 @@ public class Main extends Application {
 	public static Mezo[] getMezok() {
 		return mezo;
 	}
-
+	
 	@Override
 	public void start(Stage stage) {
 
@@ -203,6 +200,10 @@ public class Main extends Application {
 		stage.setTitle("Aknakeresõ");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
 	}
 
 }

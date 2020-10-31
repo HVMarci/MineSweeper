@@ -107,12 +107,11 @@ public class Mezo extends Rectangle {
 					 * (AWTException e) { e.printStackTrace(); }
 					 */
 					try {
-						Bounds boundsInScreen = szomszed.localToScreen(szomszed.getBoundsInLocal());
 						//System.out.print(szomszed.getX()+"; "+szomszed.getY());
 						
 						szomszed.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, szomszed.getX() + 10,
-								szomszed.getY() + 10, boundsInScreen.getCenterX() + 10,
-								boundsInScreen.getCenterY() + 10, MouseButton.PRIMARY, 1, false, false, false, false,
+								szomszed.getY() + 10, 0,
+								0, MouseButton.PRIMARY, 1, false, false, false, false,
 								true, false, false, true, true, true, null));
 					} catch (Exception e) {
 						Main.text[0].setText(e.getClass().getSimpleName());
