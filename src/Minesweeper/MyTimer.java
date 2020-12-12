@@ -24,6 +24,8 @@ public class MyTimer extends Text {
 		this.update();
 	}
 
+	
+	@SuppressWarnings("deprecation")
 	public void noveles() {
 
 		time.setSeconds(time.getSeconds() + 1);
@@ -37,6 +39,7 @@ public class MyTimer extends Text {
 		}, 1000);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void update() {
 		String sec;
 		if (time.getSeconds() < 10) {
