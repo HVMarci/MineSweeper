@@ -1,9 +1,18 @@
 package Minesweeper;
 
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
+//import java.nio.charset.Charset;
+//import java.nio.charset.StandardCharsets;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+//import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -102,10 +111,10 @@ public class Main extends Application {
 	public static Mezo[] getMezok() {
 		return mezo;
 	}
-	
+
 	@Override
 	public void start(Stage stage) {
-		
+
 		s = stage;
 		// konzolos pályalekérés
 		// Scanner scanner = new Scanner(System.in);
@@ -142,7 +151,7 @@ public class Main extends Application {
 		});
 
 		dialogVbox.getChildren().add(txtfld);
-		
+
 		// OK gomb
 		Button button = new Button();
 		button.setText("OK");
@@ -157,13 +166,42 @@ public class Main extends Application {
 		});
 		dialogVbox.getChildren().add(button);
 
+		// súgó
+		dialogVbox.setOnKeyPressed(new Sugo(dialog));
+
 		// megjelenítés
 		Scene dialogScene = new Scene(dialogVbox, 200, 100);
 		dialog.setScene(dialogScene);
 		dialog.show();
-		// } while (meret < 3 || meret > 100);
 
-		// scanner.close();
+		// súgó megjelenítése, ha elsõ játék
+		/*File file = new File("./resources/elsojatek.txt");
+		try (Scanner scanner = new Scanner(file)) {
+			boolean bool = scanner.nextBoolean();
+			if (bool) {
+				Sugo.megjelenit();
+				// Path path = Paths.get("./src/Minesweeper/resources/elsojatek.txt");
+
+			}
+			scanner.close();
+		} catch (Exception e1) {
+
+			File currentDirFile = new File(".");
+			String helper = currentDirFile.getAbsolutePath();
+			System.out.println(helper);
+			System.out.println(e1);
+		}
+		try {
+
+			Path path = Paths.get("./resources/elsojatek.txt");
+			Charset charset = StandardCharsets.UTF_8;
+			String content = new String(Files.readAllBytes(path), charset);
+			content = content.replaceAll("true", "false");
+			Files.write(path, content.getBytes(charset));
+		} catch (Exception e) {
+			System.out.println(e);
+		}*/
+		
 
 	}
 
@@ -178,7 +216,7 @@ public class Main extends Application {
 		// beállítom a bombák számát
 		bombakSzama = (int) (meret * meret / 6);
 
-		// kiírom a bombák számá, majd üres sor a konzolba, hogy lejjebb jöjjön a többi
+		// kiírom a bombák számát, majd üres sor a konzolba, hogy lejjebb jöjjön a többi
 		// üzenet
 		bombakKijelzo.changeValue(0, bombakSzama);
 		System.out.println("Bombák száma: " + bombakSzama);
@@ -198,16 +236,19 @@ public class Main extends Application {
 		// root.getChildren().add(btn);
 
 		Scene scene = new Scene(root, meret * 40 + 20, meret * 40 + 40);
+		
+		// súgó
+		scene.setOnKeyPressed(new Sugo(stage));
 
 		stage.setTitle("Aknakeresõ");
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	public static Stage getStage() {
 		return s;
 	}

@@ -24,7 +24,7 @@ public class KlikkListener implements EventHandler<MouseEvent> {
 					Main.timer.noveles();
 				}
 
-				// ne tegyük hátrébb, mert végtelen loopba kerül, és kapunk egy ~végtelen
+				// ne tegyÃ¼k hátrébb, mert végtelen loopba kerÃ¼l, és kapunk egy ~végtelen
 				// exceptiont!
 				rect.jeloles = Jeloles.BIZTOS;
 				if (rect.isMine) {
@@ -44,26 +44,46 @@ public class KlikkListener implements EventHandler<MouseEvent> {
 					}
 				}
 			}
-		// jobb gomb
+			// jobb gomb
 		} else if (e.getButton() == MouseButton.SECONDARY) {
 			if (rect.jeloles == Jeloles.NEMJELOLT) {
-				// bejelöljük ha még nincsen bejelölve
+				// bejelöljÃ¼k ha még nincsen bejelölve
 				rect.setFill(Color.BLUE);
 				rect.jeloles = Jeloles.JELOLT;
-				// növeljük a jelölések számát
+				// növeljÃ¼k a jelölések számát
 				Main.jelolesekSzama++;
 				// kiírjuk a jelölések számát
 				Main.bombakKijelzo.changeValue(Main.jelolesekSzama, Main.bombakSzama);
 				System.out.println("Bejelölt bombák: " + Main.jelolesekSzama + " / " + Main.bombakSzama);
+				// zászlót rajzolunk
+//				Main.text[index].setText("ðŸš©");
 			} else if (rect.jeloles == Jeloles.JELOLT) {
-				// bizonytalanná tesszük a jelölést
-				rect.setFill(Color.YELLOW);
-				rect.jeloles = Jeloles.BIZONYTALAN;
-				// csökkentjük a jelölések számát
+				// kikapcsoljuk a jelölést
+				rect.setFill(Color.WHITE);
+				rect.jeloles = Jeloles.NEMJELOLT;
+				// csökkentjÃ¼k a jelölések számát
 				Main.jelolesekSzama--;
 				// kiírjuk a jelölések számát
 				Main.bombakKijelzo.changeValue(Main.jelolesekSzama, Main.bombakSzama);
 				System.out.println("Bejelölt bombák: " + Main.jelolesekSzama + " / " + Main.bombakSzama);
+				// szöveget Ã¼rítjÃ¼k
+//				Main.text[index].setText("");
+			}
+			// ha win, akkor win
+			if (JatekVege.isWin()) {
+				JatekVege.win();
+			}
+			// görgõ
+		} else if (e.getButton() == MouseButton.MIDDLE) {
+			if (rect.jeloles == Jeloles.NEMJELOLT) {
+				// bizonytalanná tesszÃ¼k a jelölést
+				rect.setFill(Color.YELLOW);
+				rect.jeloles = Jeloles.BIZONYTALAN;
+				// kiírjuk a jelölések számát
+				Main.bombakKijelzo.changeValue(Main.jelolesekSzama, Main.bombakSzama);
+				System.out.println("Bejelölt bombák: " + Main.jelolesekSzama + " / " + Main.bombakSzama);
+				// kérdõjel
+//				Main.text[index].setText("?");
 			} else if (rect.jeloles == Jeloles.BIZONYTALAN) {
 				// kikapcsoljuk a jelölést
 				rect.setFill(Color.WHITE);
@@ -71,11 +91,10 @@ public class KlikkListener implements EventHandler<MouseEvent> {
 				// kiírjuk a jelölések számát
 				Main.bombakKijelzo.changeValue(Main.jelolesekSzama, Main.bombakSzama);
 				System.out.println("Bejelölt bombák: " + Main.jelolesekSzama + " / " + Main.bombakSzama);
+				// szöveget Ã¼rítjÃ¼k
+//				Main.text[index].setText("");
 			}
-			// ha win, akkor win
-			if (JatekVege.isWin()) {
-				JatekVege.win();
-			}
+			
 		}
 	}
 
