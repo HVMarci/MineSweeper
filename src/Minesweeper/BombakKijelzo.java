@@ -12,7 +12,7 @@ public class BombakKijelzo extends Text {
 		super();
 		
 		this.setX(10);
-		this.setY(20);
+		this.setY(40);
 		this.setFill(Color.BLACK);
 		this.setFont(new Font(20));
 		

@@ -227,15 +227,18 @@ public class Main extends Application {
 		// placeMine(mezo, bombakSzama);
 		// timer
 		timer = new MyTimer();
+		
+		SugoGomb sg = new SugoGomb();
 
 		Group root = new Group();
 		root.getChildren().addAll(mezo);
 		root.getChildren().addAll(text);
 		root.getChildren().add(bombakKijelzo);
 		root.getChildren().add(timer);
+		root.getChildren().add(sg);
 		// root.getChildren().add(btn);
 
-		Scene scene = new Scene(root, meret * 40 + 20, meret * 40 + 40);
+		Scene scene = new Scene(root, meret * 40 + 20, meret * 40 + 60);
 		
 		// súgó
 		scene.setOnKeyPressed(new Sugo(stage));

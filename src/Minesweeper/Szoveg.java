@@ -12,7 +12,7 @@ public class Szoveg extends Text {
 		
 		// alapcuccok
 		this.setX(x*40+6+10);
-		this.setY(y*40+40-6+30);
+		this.setY(y*40+40-6+50);
 		this.setFill(Color.BLACK);
 		this.setFont(new Font(38));
 		this.setTextAlignment(TextAlignment.CENTER);

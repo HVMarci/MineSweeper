@@ -22,7 +22,7 @@ public class Mezo extends Rectangle {
 		this.setWidth(40);
 		this.setHeight(40);
 		this.setX(x * 40 + 10);
-		this.setY(y * 40 + 30);
+		this.setY(y * 40 + 50);
 		// nem akna
 		this.isMine = false;
 		// nincs bejelölve és felfedve
